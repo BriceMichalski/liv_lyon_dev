@@ -1,4 +1,4 @@
-VM de dev INSPIRATION BOBINE
+VM de dev LIV LYON
 ===================
 
 Prérequis
