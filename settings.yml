@@ -1,0 +1,14 @@
+ram: 2048
+proc: 2
+
+vm_name: liv_lyon_dev
+vm_box: centos/7
+
+synced:
+  folders:
+    provision: #if you change this values , dont forget to change it in Vagrantfile
+      host_path: '../provisionning'
+      guest_path: '/vagrant/provisionning'
+    sources:
+      host_path: '../sources'
+      guest_path: '/vagrant/sources'
