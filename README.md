@@ -57,8 +57,7 @@ $ cp example.settings.yml settings.yml
 Dans le fichier settings.yml,
 
  * renseigner le chemin vers le provisionning du projet ibon Validite unique (racine du dépôt provisionning à cloner depuis Stash/Git)
-
-```
+ 
 	provison:
   		host_path: '<path_to_provisionning>'
 
