@@ -43,7 +43,7 @@ Vagrant.configure('2') do |config|
 	# Provisionning #
 	#################
 	config.vm.provision "platform", type:"ansible_local" do |ansible|
-	    ansible.playbook = "/vagrant/provisionning/ansible/build_liv_dev_platform.yml"
+	    ansible.playbook = "/vagrant/provisionning/ansible/build_liv_lyon_platform.yml"
 	    ansible.inventory_path = "/vagrant/provisionning/ansible/environment/DEV/DEV"
 	    ansible.limit = "all"
 	end
