@@ -7,8 +7,8 @@ vm_box: centos/7
 synced:
   folders:
     provision: #if you change this values , dont forget to change it in Vagrantfile
-      host_path: '../ib_provisionning'
+      host_path: '../liv_lyon_provisionning'
       guest_path: '/vagrant/provisionning'
     sources:
-      host_path: '../ib_sources'
+      host_path: '../liv_lyon_sources'
       guest_path: '/vagrant/sources'

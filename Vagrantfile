@@ -23,7 +23,6 @@ Vagrant.configure('2') do |config|
 	#################
 	#   Network 		#
 	#################
-  config.vm.network "private_network", type: "dhcp"
 	# Default HTTP port
 	config.vm.network "forwarded_port", guest: 80, host: 8080, auto_correct: true
 	# MySQL port
@@ -33,9 +32,10 @@ Vagrant.configure('2') do |config|
 	# Synced folder #
 	#################
 	config.vm.synced_folder "./", "/vagrant", id: "vagrant-root"
+
 	if settings["synced"]
 	    settings["synced"]["folders"].each do |sf_name, sf|
-	        config.vm.synced_folder sf["host_path"], sf["guest_path"], type:"nfs"
+	        config.vm.synced_folder sf["host_path"], sf["guest_path"]
 	    end
 	end
 
@@ -48,6 +48,10 @@ Vagrant.configure('2') do |config|
 	    ansible.limit = "all"
 	end
 
-
+	config.vm.provision "app", type:"ansible_local" do |ansible|
+	    ansible.playbook = "/vagrant/provisionning/ansible/deploy_app.yml"
+	    ansible.inventory_path = "/vagrant/provisionning/ansible/environment/DEV/DEV"
+	    ansible.limit = "all"
+	end
 
 end
