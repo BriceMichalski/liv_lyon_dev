@@ -1,95 +1,88 @@
-VM de dev LIV LYON
+VM of development LIV LYON
 ===================
 
-Prérequis
+Prerequisites
 ----------
 
-- Installation de Git GUI : https://wikidigital.fr.carrefour.com/pages/viewpageattachments.action?pageId=5768215&metadataLink=true
+- Installation of Git GUI: https://wikidigital.fr.carrefour.com/pages/viewpageattachments.action?pageId=5768215&metadataLink=true
 - Virtualbox (https://www.virtualbox.org/wiki/Downloads) Version 5.1.14
 - vagrant (https://www.vagrantup.com/downloads.html) Version 1.9.0
-- vagrant vbguest plugin (depuis Git BASH : "vagrant plugin install vagrant-vbguest")
-- vagrant proxyconf plugin si proxy présent (depuis Git BASH : "vagrant plugin install vagrant-proxyconf")
+- vagrant vbguest plugin (since Git BASH: "vagrant plugin install vagrant-vbguest")
+- vagrant proxyconf plugin if proxy present (from Git BASH: "vagrant plugin install vagrant-proxyconf")
 
-Pour les utilisateurs sous windows derrière un proxy il est nécessaire d'enregistrer le proxy et d'inclure la directive plugin-source.
+For users under windows behind a proxy it is necessary to register the proxy and include the plugin-source directive.
 
-Dans git bash:
+In git bash:
 
 ```
-$ export http_proxy=http://<user>:<pass>@<proxy>:<port>
-$ export https_proxy=http://<user>:<pass>@<proxy>:<port>
-$ vagrant plugin install vagrant-vbguest --plugin-source http://rubygems.org
+export http_proxy=http://<user>:<pass>@<proxy>:<port>
+export https_proxy=http://<user>:<pass>@<proxy>:<port>
+$ vagrant plugin install plugin vagrant-vbguest --plugin-source http://rubygems.org
 ```
 
-Gestion du proxy
+Proxy management
 ----------
-- Si vous êtes derrière un proxy:
-
-Dans le dossier .vagrant.d de votre dossier personnel (C:/Utilisateurs/FR*****/.vagrant.d/)
-Assurez-vous d'avoir un Vagrantfile avec le proxy de configuré:
+- If you are behind a proxy:
+In the.vagrant.d folder of your personal folder (C:/Users/*******/.vagrant.d/) Make sure you have a Vagrantfile with the proxy configured:
 
 ```
-#C:/Utilisateurs/FR*****/.vagrant.d/Vagrantfile
+#C:/Users/*********/.vagrant.d/Vagrantfile
 
 Vagrant.configure("2") do |config|
-  if Vagrant.has_plugin?("vagrant-proxyconf")
+  if Vagrant.has_plugin?
     enable_proxies = true
-    config.proxy.http     = "http://<user>:<pass>@<proxy>:<port>"
-    config.proxy.https    = "http://<user>:<pass>@<proxy>:<port>"
-    config.proxy.no_proxy = "localhost,127.0.0.1,.example.com"
+    config.proxy.http = "http://<user>:<pass>@<proxy>:<port>"
+    config.proxy.https = "http://<user>:<pass>@<proxy>:<port>"
+    config.proxy.no_proxy = "localhost,127.0.0.0.1,.example.com"
   end
-  if Vagrant.has_plugin?("vagrant-vbguest")
+  if Vagrant.has_plugin?
     #config.vbguest.auto_update = true
   end
 end
 ```
 
-
-
-Préparation du fichier settings
+Preparation of the settings file
 ----------
 
-Depuis le répertoire dev
-Copier le fichier example.settings.yml en settings.yml
+From the directory dev Copy the file example.settings.yml to settings.yml
 
 ```
-$ cp example.settings.yml settings.yml
+cp example.settings.yml settings.yml settings.yml
 ```
-Dans le fichier settings.yml,
 
- * renseigner le chemin vers le provisionning du projet ibon Validite unique (racine du dépôt provisionning à cloner depuis Stash/Git)
- 
-	provison:
-  		host_path: '<path_to_provisionning>'
+In the settings.yml file,
 
-Branche de chaque répertoire à utiliser :
+ *  fill in the path to the provisioning of the ibon Validite unique project (root of the provisioning repository to be cloned from Stash/Git)
+
+provison: host_path: <path_to_provisionning>''
+
+Branch of each directory to be used:
 ------------
-
 - dev: develop
 - provisionning: develop
 
 ```
-#../dev
+#.../dev
 	$ git checkout develop
 
-#../provisionning
+#.../provisionning
 	$ git checkout develop
 ```
 
-Lancer la VM
+
+Start the VM
 ------------
 
-Depuis le répertoire dev et de préférence avec Git BASH
-Démarrer la VM (en mode administrateur sous windows)
+From the dev directory and preferably with Git BASH Start VM (in administrator mode under windows)
 
 ```
 $ vagrant up
 ```
 
-Pour se connecter à la VM
+To connect to the VM
 ------------
 
 ```
-$ vagrant ssh
+$ ssh vagrant
 ```
-
-les sources se trouve dans le repertoire /vagrant/sources
+the sources are in the directory /vagrant/sources
