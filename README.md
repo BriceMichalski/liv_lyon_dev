@@ -4,7 +4,7 @@ VM of development LIV LYON
 Prerequisites
 ----------
 
-- Installation of Git GUI: https://wikidigital.fr.carrefour.com/pages/viewpageattachments.action?pageId=5768215&metadataLink=true
+- Installation of Git GUI (https://git-scm.com/download/gui/windows)
 - Virtualbox (https://www.virtualbox.org/wiki/Downloads) Version 5.1.14
 - vagrant (https://www.vagrantup.com/downloads.html) Version 1.9.0
 - vagrant vbguest plugin (since Git BASH: "vagrant plugin install vagrant-vbguest")
@@ -15,8 +15,8 @@ For users under windows behind a proxy it is necessary to register the proxy and
 In git bash:
 
 ```
-export http_proxy=http://<user>:<pass>@<proxy>:<port>
-export https_proxy=http://<user>:<pass>@<proxy>:<port>
+$ export http_proxy=http://<user>:<pass>@<proxy>:<port>
+$ export https_proxy=http://<user>:<pass>@<proxy>:<port>
 $ vagrant plugin install plugin vagrant-vbguest --plugin-source http://rubygems.org
 ```
 
@@ -47,7 +47,7 @@ Preparation of the settings file
 From the directory dev Copy the file example.settings.yml to settings.yml
 
 ```
-cp example.settings.yml settings.yml settings.yml
+$ cp example.settings.yml settings.yml settings.yml
 ```
 
 In the settings.yml file,
