@@ -1,3 +1,4 @@
+
 require 'yaml'
 
 # Read YAML file with box details
@@ -43,6 +44,7 @@ Vagrant.configure('2') do |config|
 	# Provisionning #
 	#################
 	config.vm.provision "platform", type:"ansible_local" do |ansible|
+			ansible.galaxy_role_file = '/vagrant/provisionning/ansible/requirements.yml'
 	    ansible.playbook = "/vagrant/provisionning/ansible/build_liv_lyon_platform.yml"
 	    ansible.inventory_path = "/vagrant/provisionning/ansible/environment/DEV/DEV"
 	    ansible.limit = "all"
@@ -53,5 +55,4 @@ Vagrant.configure('2') do |config|
 	    ansible.inventory_path = "/vagrant/provisionning/ansible/environment/DEV/DEV"
 	    ansible.limit = "all"
 	end
-
 end
