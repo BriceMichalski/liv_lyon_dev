@@ -1,7 +1,7 @@
 ram: 2048
 proc: 2
 
-vm_name: IB_dev
+vm_name: liv_dev
 vm_box: centos/7
 
 synced:
